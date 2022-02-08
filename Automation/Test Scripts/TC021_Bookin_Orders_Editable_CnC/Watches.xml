@@ -1,0 +1,7 @@
+﻿<Properties>
+  <WatchEntry0 value="TestScriptRootPath" />
+  <WatchEntry1 value="spath" />
+  <WatchEntry2 value="DirPath" />
+  <WatchEntry3 value="LoginToTill" />
+  <WatchEntry4 value="JavaWindow(&quot;Oracle Retail Xstore Point&quot;).JavaList(&quot;Main Menu&quot;).Select &quot;#0&quot;" />
+</Properties>

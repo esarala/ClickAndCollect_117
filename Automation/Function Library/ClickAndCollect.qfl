@@ -1,0 +1,533 @@
+﻿
+'###################################################################################################################
+'Function Name: Till Login
+'Function Description: Login to Till
+'Designed By Date: YOGESH
+'Designed Date(MM/DD/YY): 11/11/2020
+'###################################################################################################################
+
+
+Function LoginToTill (strUsername, strPassword)
+
+
+
+If 	JavaWindow("Oracle Retail Xstore Point").JavaStaticText("Back Office Login(st)").Exist(60) Then
+	JavaWindow("Oracle Retail Xstore Point").JavaButton("Till").Click
+Else
+	Set objkeys = createobject("Wscript.Shell")
+
+	JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Set strUsername
+	wait 2
+End If
+'JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Set strUsername
+wait 2
+objkeys.sendkeys "{ENTER}"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Setsecure strPassword
+wait 2
+Set objkeys = createobject("Wscript.Shell")
+objkeys.sendkeys "{ENTER}"
+wait 2
+If JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").exist(2) Then
+	
+	JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Click
+	
+End If 
+
+Set objkeys = nothing
+	
+End Function
+
+
+Function Add_Search_Order (intOrderNum, strFirstName, strLastName, intMobileNum, intParcelRef)
+
+On error resume next
+
+Set objkeys = createobject("wscript.shell")
+
+JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList_2").Select "#3"
+
+'JavaWindow("Oracle Retail Xstore Point").JavaList("Main Menu").Select "#3"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList_2").Select "#0"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("OK").Click
+wait 3
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Add").Click
+wait 3
+JavaWindow("Oracle Retail Xstore Point").JavaList("Search Criteria").Select "Order/Fulfilment Number"
+wait 4
+
+JavaWindow("Oracle Retail Xstore Point").JavaEdit("developer name:=tukCustOrderCollectionChooseSearchTypeInputTextField").Set intOrderNum
+
+'JavaWindow("Oracle Retail Xstore Point").JavaEdit("XstFocusBarTextField$DefaultFocusBa").Set intOrderNum
+'JavaWindow("Oracle Retail Xstore Point").JavaEdit("Input Search Criteria").Set intOrderNum
+
+wait 3
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm_2").Click
+objkeys.SendKeys "{F2}"
+wait 3
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Add Manually").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("Customer Name").Select "Mr"
+JavaWindow("Oracle Retail Xstore Point").JavaEdit("PosTextField").Set strFirstName
+JavaWindow("Oracle Retail Xstore Point").JavaEdit("PosTextField_2").Set strLastName
+JavaWindow("Oracle Retail Xstore Point").JavaEdit("Contact Number").Set intMobileNum
+JavaWindow("Oracle Retail Xstore Point").JavaEdit("Order/Fulfilment Number").Set intOrderNum
+JavaWindow("Oracle Retail Xstore Point").JavaList("Courier").Select "UK MAIL"
+wait 3
+JavaWindow("Oracle Retail Xstore Point").JavaEdit("Parcel Reference").Set intParcelRef
+wait 3
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm_2").Click
+objkeys.SendKeys "{F2}"
+wait 8
+objkeys.SendKeys "{F2}"
+wait 8
+
+
+If JavaWindow("Oracle Retail Xstore Point").JavaButton("attached text:=Yes").Exist(4) Then
+
+	JavaWindow("Oracle Retail Xstore Point").JavaButton("attached text:=Yes").Click 'Add Book-in validation
+	reporter.ReportEvent micPass, "Add Order", "Order has been added successfully, hence Passed"
+	
+	Else
+	reporter.ReportEvent micFail, "Add Order", "Order was not added successfully, hence Failed!"
+End If
+
+wait 2
+objkeys.SendKeys "{Esc}"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Till").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Additional Options").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Click & Collect").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Collect").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("Search Criteria").Select "Order/Fulfilment Number"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaEdit("Input Search Criteria").Set intOrderNum
+wait 2
+objkeys.SendKeys "{F2}"
+wait 2
+objkeys.SendKeys "{F2}" 'Search order validation
+wait 2
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("Cancel").Click
+wait 2
+objkeys.SendKeys "{Esc}"
+wait 2
+objkeys.SendKeys "{Esc}"
+wait 2
+objkeys.SendKeys "{Esc}"
+wait 2
+objkeys.SendKeys "{Esc}"
+wait 2
+objkeys.SendKeys "{Esc}"
+
+On error goto 0
+	
+End Function
+
+
+
+Function InvalidOrder(intOrderNUm)
+
+	
+'************Invalid Order verify**************************************
+
+set objkeys = createobject("wscript.shell")
+
+JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList_2").Select "#3"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList_2").Select "#0"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("OK").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Add").Click
+
+JavaWindow("Oracle Retail Xstore Point").JavaList("Search Criteria").Select "Order/Fulfilment Number"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaEdit("developer name:=tukCustOrderCollectionChooseSearchTypeInputTextField").Set intOrderNum
+'JavaWindow("Oracle Retail Xstore Point").JavaEdit("Input Search Criteria").Set intOrderNum
+wait 2
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm_2").Click
+objkeys.SendKeys "{F2}"
+wait 2
+
+If JavaWindow("Oracle Retail Xstore Point").JavaEdit("PosTextField_3").getROproperty("text") = "Invalid Order/Fulfilment Number" Then
+	
+	JavaWindow("Oracle Retail Xstore Point").JavaButton("OK").Click
+	reporter.ReportEvent micPass, "Invalid Order Error", "The Invalid Order Error appeared as expected, hence Passed"
+
+	else
+	reporter.ReportEvent micFail, "Invalid Order Error", "The Invalid Order Error did not appear as expected, hence Failed!"
+	
+End If
+
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Cancel").Click
+wait 2
+objkeys.SendKeys "{Esc}"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Till").Click
+
+'Invalid Order/Fulfilment Number
+
+	
+End Function
+
+
+Function Collect_Button()
+	
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Additional Options").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Click & Collect").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Enquiry").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("Search Criteria").Select "All Orders"
+wait 5
+If JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Exist(60) Then
+	JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+End If 
+
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+
+wait 15
+
+If JavaWindow("Oracle Retail Xstore Point").JavaButton("label:=Confirm").Exist(60) Then
+	JavaWindow("Oracle Retail Xstore Point").JavaButton("label:=Confirm").Click
+end if 
+
+wait 4
+
+
+if JavaWindow("Oracle Retail Xstore Point").JavaButton("Collect Order").getROproperty("enabled") = 0 then
+
+	reporter.ReportEvent micPass, "Collect Button Verify", "The Collect button is Disabled as expected"
+	
+	else
+	reporter.ReportEvent micPass, "Collect Button Verify", "The Collect button is not disabled, hence Failed!" 
+	
+End If
+
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Back_2").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Log Off").Click
+'
+	
+End Function
+
+
+Function NoOrdersFound(intOrderNUm)
+
+	
+'************Invalid Order verify**************************************
+
+Set objkeys = createobject("wscript.shell")
+
+JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList_2").Select "#3"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList_2").Select "#0"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("OK").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Add").Click
+
+JavaWindow("Oracle Retail Xstore Point").JavaList("Search Criteria").Select "Order/Fulfilment Number"
+wait 2
+'JavaWindow("Oracle Retail Xstore Point").JavaEdit("Input Search Criteria").Set intOrderNum
+
+JavaWindow("Oracle Retail Xstore Point").JavaEdit("PosTextField").Set intOrderNum
+wait 4
+
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm_2").Click
+objkeys.SendKeys "{F2}"
+
+wait 2
+
+If JavaWindow("Oracle Retail Xstore Point").JavaEdit("PosTextPane").getROproperty("text") = "Order not found  Order Number provided in the request is unavailable." Then
+	
+	JavaWindow("Oracle Retail Xstore Point").JavaButton("OK").Click
+	reporter.ReportEvent micPass, "No orders found error", "The No orders found error appeared as expected!"
+
+	else
+	reporter.ReportEvent micPass, "No orders found error", "The No orders found error did not appear as expected"
+	
+End If
+
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Cancel").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Cancel").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Back_2").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Till").Click
+
+'Invalid Order/Fulfilment Number
+
+	
+End Function
+
+
+
+
+Function BO_CollectButton()
+
+set objkeys = createobject("wscript.shell")
+	
+JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList_2").Select "#3"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList_2").Select "#2"
+wait 2
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("OK").Click
+'wait 2
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("Add").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("Search Criteria").Select "All Orders"
+wait 2
+objkeys.SendKeys "{F2}"
+wait 2
+objkeys.SendKeys "{F2}"
+wait 2 
+
+If JavaWindow("Oracle Retail Xstore Point").JavaButton("Collect Order").getROproperty("enabled") = 0 Then
+
+	reporter.ReportEvent micPass, "Back Office Collect Button", "The Collect Button in Back Office Enquiry is Disabled as expected"
+	
+	else
+	reporter.ReportEvent micFailed, "Back Office Collect Button", "The Collect Button in Back Office Enquiry is Not Disabled, hence Failed"
+	
+End If
+
+objkeys.SendKeys "{Esc}"
+wait 2
+
+objkeys.SendKeys "{Esc}"
+wait 2
+
+objkeys.SendKeys "{Esc}"
+wait 2
+
+objkeys.SendKeys "{Esc}"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Till").Click
+
+
+End Function
+
+
+Function Till_Enquiry_AllOrders()
+
+set objkeys = createobject("wscript.shell")
+	
+
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Additional Options").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Click & Collect").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Enquiry").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("Search Criteria").Select "All Orders"
+wait 2
+objkeys.SendKeys "{F2}"
+wait 2
+if JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList").exist(1) then
+
+	reporter.ReportEvent micPass, "Till Enquiry All Orders list", "The All Orders list in Enquiry is displayed as expected"
+	
+	else
+	reporter.ReportEvent micFail, "Till Enquiry All Orders list", "The All Orders list in Enquiry is not displayed as expected, hence Failed!"
+	
+End If 
+objkeys.SendKeys "{Esc}"
+wait 2
+objkeys.SendKeys "{Esc}"
+wait 2
+objkeys.SendKeys "{Esc}"
+wait 2
+objkeys.SendKeys "{Esc}"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Log Off").Click
+	
+	
+End Function
+
+
+Function Bookin_Orders_NotEditable()
+
+set objkeys = createobject("WScript.Shell")
+	
+JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList_2").Select "#3"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList_2").Select "#2"
+'wait 2
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("OK").Click
+'wait 2
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("Add").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("Search Criteria").Select "All Orders"
+wait 2
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+objkeys.sendkeys "{F2}"
+wait 2
+objkeys.sendkeys "{F2}"
+wait 2 
+	
+	
+if JavaWindow("Oracle Retail Xstore Point").JavaList("Customer Order Collection").exist(1) then
+	
+	reporter.ReportEvent micPass, "Orders Not Editable", "The orders in Bookin screen are not editable, hence passed"
+	
+	else
+	reporter.ReportEvent micPass, "Order Not Editable", "The orders in Bookin screen are not editable, hence passed"
+
+End If
+
+wait 2
+objkeys.sendkeys "{Esc}"
+wait 2
+objkeys.sendkeys "{Esc}"
+wait 2
+objkeys.sendkeys "{Esc}"
+wait 2
+objkeys.sendkeys "{Esc}"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Till").Click
+	
+End Function
+
+
+Function Enquiry_IncludeClosedOrders()
+	
+	
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Additional Options").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Click & Collect").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Enquiry").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("Search Criteria").Select "All Orders"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaCheckBox("icon-checkbox").Set "ON"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+wait 2
+
+if JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList").exist(60) then
+
+	reporter.ReportEvent micPass, "Till Enquiry All Orders list Include Closed Orders", "The All Orders list including closed orders in Enquiry is displayed as expected"
+	
+	else
+	reporter.ReportEvent micFail, "Till Enquiry All Orders list Include Closed Orders", "The All Orders list including closed orders in Enquiry is not displayed as expected, hence Failed!"
+	
+End If 
+
+wait 3
+
+For i = 0 To 4
+		If JavaWindow("Oracle Retail Xstore Point").JavaButton("Back_2").exist(2) Then
+		JavaWindow("Oracle Retail Xstore Point").JavaButton("Back_2").Click
+		ElseIf JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").exist(2) Then
+		JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").Click
+	End If
+	wait 3
+	Next
+	wait 3
+
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Log Off").Click
+
+'wait 2
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").Click
+'wait 2
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("Back_2").Click
+'wait 2
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").Click
+'wait 2
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").Click
+'wait 2
+'JavaWindow("Oracle Retail Xstore Point").JavaButton("Till").Click
+	
+End Function
+
+
+
+Function ParcelRef_NoInput()
+
+set objkeys = createobject("WScript.Shell")
+	
+JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList_2").Select "#3"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList_2").Select "#0"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("OK").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Add").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("Search Criteria").Select "Parcel Reference"
+
+objkeys.SendKeys "{F2}"
+wait 2
+
+if JavaWindow("Oracle Retail Xstore Point").JavaEdit("PosTextPane").exist(1) then
+
+	reporter.ReportEvent micPass, "No Input Search Criteria", "The No input error is displayed, hence passed"
+	JavaWindow("Oracle Retail Xstore Point").JavaButton("OK").Click
+	
+	Else 
+	reporter.ReportEvent micFail, "No Input search criteria", "Thec expected error is not displayed, hence Failed!"
+
+End If 
+
+
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Cancel").Click
+wait 2
+objkeys.SendKeys "{Esc}"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Till").Click
+	
+End Function
+
+
+
+Function CollectEnquiry()
+	
+	wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Additional Options").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Click & Collect").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Enquiry").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("Search Criteria").Select "All Orders"
+wait 2
+set objkeys = createobject("wscript.shell")
+objkeys.SendKeys "{F2}"
+wait 2
+set objkeys = createobject("wscript.shell")
+objkeys.SendKeys "{F2}"
+wait 2
+set objkeys = createobject("wscript.shell")
+objkeys.SendKeys "{F2}"
+wait 2
+set objkeys = createobject("wscript.shell")
+objkeys.SendKeys "{F2}"
+wait 2
+
+	
+	
+End Function
+

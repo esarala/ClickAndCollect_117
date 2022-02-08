@@ -1,0 +1,1 @@
+﻿var __testDataSource={items:[{dataFilePath:'Default.xlsx',dataFileFormat:'excel',dataFileFolder:'C:\\Click And Collect\\Automation\\Test Scripts\\TC_06_CnC_To Verify Extend Order button is disabled for already collected orders\\Report',namePairs:[]}]};

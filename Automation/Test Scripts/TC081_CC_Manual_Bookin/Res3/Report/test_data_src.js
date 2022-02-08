@@ -1,0 +1,1 @@
+﻿var __testDataSource={items:[{dataFilePath:'Default.xlsx',dataFileFormat:'excel',dataFileFolder:'C:\\UserAccess\\Automation\\Test Scripts\\TC001_UserAccess_Sample\\Res3',namePairs:[]}]};

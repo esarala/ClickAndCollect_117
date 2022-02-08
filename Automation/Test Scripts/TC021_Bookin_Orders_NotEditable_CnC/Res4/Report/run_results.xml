@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<Results version="1.0">
+<ReportNode type="testrun">
+<ReportNode type="Step">
+<Data>
+    <Name>HelpDeskError</Name>
+    <Description>&lt;SPAN class=text&gt;&lt;div align=left&gt;&lt;b&gt;&lt;u&gt;Scenario&lt;/u&gt;:&lt;/b&gt; HelpDeskError&lt;br&gt;&lt;b&gt;&lt;u&gt;Defined in&lt;/u&gt;:&lt;/b&gt; C:\Users\Administrator\Desktop\HelpDeskError.qrs&lt;br&gt;&lt;b&gt;&lt;u&gt;Loading failed with error&lt;/u&gt;:&lt;/b&gt; Scenario is not found.&lt;/div&gt;&lt;/SPAN&gt;</Description>
+    <StartTime>2020-11-18 14:14:36</StartTime>
+    <Result>Warning</Result>
+    <Extension>
+      <IconKey>2aa1c21a4fa64f84af17857bd7b6104b</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+      <NodeType>Recovery</NodeType>
+    </Extension>
+  </Data>
+</ReportNode>
+<ReportNode type="Iteration">
+<ReportNode type="Action">
+<ReportNode type="Step">
+<Data>
+    <Name>LoadFunctionLibrary</Name>
+    <Description>LoadFunctionLibrary function passed</Description>
+    <StartTime>2020-11-18 14:14:42</StartTime>
+    <Result>Passed</Result>
+    <Extension>
+      <IconKey>d2e83725ace346dabdf2604279f524e9</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<ReportNode type="Step">
+<Data>
+    <Name>LoadFunctionLibrary</Name>
+    <Description>LoadFunctionLibrary function passed</Description>
+    <StartTime>2020-11-18 14:14:42</StartTime>
+    <Result>Passed</Result>
+    <Extension>
+      <IconKey>d2e83725ace346dabdf2604279f524e9</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<ReportNode type="Context">
+<ReportNode type="Step">
+<Data>
+    <Name>Main Menu.Exist</Name>
+    <Description>"Object does not exist"</Description>
+    <StartTime>2020-11-18 14:14:46</StartTime>
+    <Result>Done</Result>
+    <Extension>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\User Access.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaWindow</Type>
+            <Name><![CDATA[Oracle Retail Xstore Point]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaList</Type>
+            <Name><![CDATA[Main Menu]]></Name>
+          </Object>
+        </Path>
+        <Operation>Exist</Operation>
+        <OperationData><![CDATA["Object does not exist"]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaList]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[attached text]]></Name>
+            <Value><![CDATA[Main Menu]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>de2144b81d274bf6979888c8352ac163</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<ReportNode type="Step">
+<Data>
+    <Name>Stop Run</Name>
+    <Description>Run stopped by user.</Description>
+    <StartTime>2020-11-18 14:17:03</StartTime>
+    <Result>Information</Result>
+    <Extension>
+      <IconKey>fc155cbf83aa4fa888bedaae9e0eb365</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<Data>
+    <Name>Oracle Retail Xstore Point</Name>
+    <Description>JavaWindow</Description>
+    <StartTime>2020-11-18 14:14:46</StartTime>
+    <Duration>137</Duration>
+    <Result>Done</Result>
+    <Extension>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\User Access.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaWindow</Type>
+            <Name><![CDATA[Oracle Retail Xstore Point]]></Name>
+          </Object>
+        </Path>
+        <OperationData><![CDATA[JavaWindow]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaWindow]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[title]]></Name>
+            <Value><![CDATA[Oracle Retail Xstore Point of Service]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>44eae28cc878444fa23d133c27666b42</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<Data>
+    <Name>Action1</Name>
+    <Description />
+    <StartTime>2020-11-18 14:14:38</StartTime>
+    <Duration>145</Duration>
+    <Result>Passed</Result>
+    <InputParameters />
+    <Extension>
+      <IconKey>b198891c8aa64b9092cd50af68078b73</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<Data>
+    <Name>Action0</Name>
+    <Description />
+    <StartTime>2020-11-18 14:14:38</StartTime>
+    <Duration>145</Duration>
+    <Result>Passed</Result>
+    <Extension>
+      <IconKey>f295c88924c7417f92ab4c11458a0de8</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+    <Index>1</Index>
+    <TestedApplications />
+  </Data>
+</ReportNode>
+<ReportNode type="Step">
+<Data>
+    <Name>Stop Run</Name>
+    <Description>Run stopped by user.</Description>
+    <StartTime>2020-11-18 14:17:03</StartTime>
+    <Result>Information</Result>
+    <Extension>
+      <IconKey>1fc56a95dd244af0a34de2acff1a7010</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<Data>
+    <Name>TC001_UserAccess_Sample</Name>
+    <ToolName>Micro Focus Unified Functional Testing</ToolName>
+    <ToolVersion>0</ToolVersion>
+    <ToolVersionStringLiteral>15.0.1</ToolVersionStringLiteral>
+    <Description />
+    <StartTime>2020-11-18 14:14:36</StartTime>
+    <Duration>147</Duration>
+    <Result>Warning</Result>
+    <InputParameters />
+    <Extension>
+      <IconKey>5dbdbe81472e498e90e8dc0294da1ad4</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+    <Environment>
+      <Timezone>00:00:00</Timezone>
+      <Locale>English (United States)</Locale>
+      <User>Administrator</User>
+      <CpuInfo>Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz</CpuInfo>
+      <NumberOfCores>4</NumberOfCores>
+      <TotalMemory>16384</TotalMemory>
+      <HostName>AO2SIT919R2</HostName>
+      <OSInfo>Windows Server 2016</OSInfo>
+    </Environment>
+    <TestedApplications />
+    <Links>
+      <Link type="DataTable" reference="Default.xlsx" displayname="Default Data Table" />
+    </Links>
+  </Data>
+</ReportNode>
+<GeneralInfo>
+    <ResultName>Res4</ResultName>
+    <RunStartTime>2020-11-18 14:14:36</RunStartTime>
+    <Timezone>00:00:00</Timezone>
+    <OrchestrationToolName>Micro Focus Unified Functional Testing</OrchestrationToolName>
+    <OrchestrationToolVersion>0</OrchestrationToolVersion>
+    <OrchestrationToolVersionStringLiteral>15.0.1</OrchestrationToolVersionStringLiteral>
+  </GeneralInfo>
+</Results>

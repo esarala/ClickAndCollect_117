@@ -1,0 +1,1 @@
+﻿var __testDataSource={items:[{dataFilePath:'Default.xlsx',dataFileFormat:'excel',dataFileFolder:'C:\\Click And Collect\\Automation\\Test Scripts\\TC077_ClickAndCollect_TAO_255\\Report',namePairs:[]}]};

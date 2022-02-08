@@ -1,0 +1,714 @@
+<?xml version="1.0"?>
+<Results version="1.0">
+<ReportNode type="testrun">
+<ReportNode type="Step">
+<Data>
+    <Name>HelpDeskError</Name>
+    <Description>&lt;SPAN class=text&gt;&lt;div align=left&gt;&lt;b&gt;&lt;u&gt;Scenario&lt;/u&gt;:&lt;/b&gt; HelpDeskError&lt;br&gt;&lt;b&gt;&lt;u&gt;Defined in&lt;/u&gt;:&lt;/b&gt; C:\Users\Administrator\Desktop\HelpDeskError.qrs&lt;br&gt;&lt;b&gt;&lt;u&gt;Loading failed with error&lt;/u&gt;:&lt;/b&gt; Scenario is not found.&lt;/div&gt;&lt;/SPAN&gt;</Description>
+    <StartTime>2020-11-18 14:08:59</StartTime>
+    <Result>Warning</Result>
+    <Extension>
+      <IconKey>2246361b73ef49a8982c702e892e2002</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+      <NodeType>Recovery</NodeType>
+    </Extension>
+  </Data>
+</ReportNode>
+<ReportNode type="Iteration">
+<ReportNode type="Action">
+<ReportNode type="Step">
+<Data>
+    <Name>LoadFunctionLibrary</Name>
+    <Description>LoadFunctionLibrary function passed</Description>
+    <StartTime>2020-11-18 14:09:04</StartTime>
+    <Result>Passed</Result>
+    <Extension>
+      <IconKey>51b4f324a37f441d9d526a0261568c51</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<ReportNode type="Step">
+<Data>
+    <Name>LoadFunctionLibrary</Name>
+    <Description>LoadFunctionLibrary function passed</Description>
+    <StartTime>2020-11-18 14:09:04</StartTime>
+    <Result>Passed</Result>
+    <Extension>
+      <IconKey>51b4f324a37f441d9d526a0261568c51</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<ReportNode type="Context">
+<ReportNode type="Step">
+<Data>
+    <Name>Main Menu.Exist</Name>
+    <Description>"Object does not exist"</Description>
+    <StartTime>2020-11-18 14:09:08</StartTime>
+    <Result>Done</Result>
+    <Extension>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\User Access.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaWindow</Type>
+            <Name><![CDATA[Oracle Retail Xstore Point]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaList</Type>
+            <Name><![CDATA[Main Menu]]></Name>
+          </Object>
+        </Path>
+        <Operation>Exist</Operation>
+        <OperationData><![CDATA["Object does not exist"]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaList]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[attached text]]></Name>
+            <Value><![CDATA[Main Menu]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>73b20da343404b3a82df1955ca2f4d75</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<Data>
+    <Name>Oracle Retail Xstore Point</Name>
+    <Description>JavaWindow</Description>
+    <StartTime>2020-11-18 14:09:08</StartTime>
+    <Duration>3</Duration>
+    <Result>Done</Result>
+    <Extension>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\User Access.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaWindow</Type>
+            <Name><![CDATA[Oracle Retail Xstore Point]]></Name>
+          </Object>
+        </Path>
+        <OperationData><![CDATA[JavaWindow]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaWindow]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[title]]></Name>
+            <Value><![CDATA[Oracle Retail Xstore Point of Service]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>e088bef30f1648e6ab7ddfb4823184d8</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<ReportNode type="Context">
+<ReportNode type="Step">
+<Data>
+    <Name>F2.Exist</Name>
+    <Description>"Object exists"</Description>
+    <StartTime>2020-11-18 14:09:11</StartTime>
+    <Result>Done</Result>
+    <Extension>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\Logout.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[Oracle Retail Xenvironment]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaButton</Type>
+            <Name><![CDATA[F2]]></Name>
+          </Object>
+        </Path>
+        <Operation>Exist</Operation>
+        <OperationData><![CDATA["Object exists"]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[toolkit class]]></Name>
+            <Value><![CDATA[oracle.retail.xenvironment.ui.menu.EnvImageButton]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaButton]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[label]]></Name>
+            <Value><![CDATA[]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[attached text]]></Name>
+            <Value><![CDATA[F2]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>654cfcf7ccbe4edfb1dd9c209c4da425</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<ReportNode type="Step">
+<Data>
+    <Name>F2.Click</Name>
+    <Description>"LEFT"</Description>
+    <StartTime>2020-11-18 14:09:11</StartTime>
+    <Result>Done</Result>
+    <Extension>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\Logout.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[Oracle Retail Xenvironment]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaButton</Type>
+            <Name><![CDATA[F2]]></Name>
+          </Object>
+        </Path>
+        <Operation>Click</Operation>
+        <OperationData><![CDATA["LEFT"]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[toolkit class]]></Name>
+            <Value><![CDATA[oracle.retail.xenvironment.ui.menu.EnvImageButton]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaButton]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[label]]></Name>
+            <Value><![CDATA[]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[attached text]]></Name>
+            <Value><![CDATA[F2]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>654cfcf7ccbe4edfb1dd9c209c4da425</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<ReportNode type="Context">
+<ReportNode type="Step">
+<Data>
+    <Name>Enter.Click</Name>
+    <Description>"LEFT"</Description>
+    <StartTime>2020-11-18 14:09:13</StartTime>
+    <Result>Done</Result>
+    <Extension>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\Logout.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[Oracle Retail Xenvironment]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[Selection]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaButton</Type>
+            <Name><![CDATA[Enter]]></Name>
+          </Object>
+        </Path>
+        <Operation>Click</Operation>
+        <OperationData><![CDATA["LEFT"]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[toolkit class]]></Name>
+            <Value><![CDATA[oracle.retail.xenvironment.ui.menu.EnvImageButton]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaButton]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[label]]></Name>
+            <Value><![CDATA[]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[attached text]]></Name>
+            <Value><![CDATA[Enter]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>654cfcf7ccbe4edfb1dd9c209c4da425</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<Data>
+    <Name>Selection</Name>
+    <Description>JavaDialog</Description>
+    <StartTime>2020-11-18 14:09:13</StartTime>
+    <Duration>2</Duration>
+    <Result>Done</Result>
+    <Extension>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\Logout.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[Oracle Retail Xenvironment]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[Selection]]></Name>
+          </Object>
+        </Path>
+        <OperationData><![CDATA[JavaDialog]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaDialog]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[title]]></Name>
+            <Value><![CDATA[Selection]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>5e65f5f0a1974795981d7f9529ae9273</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<ReportNode type="Context">
+<ReportNode type="Step">
+<Data>
+    <Name>Y.Click</Name>
+    <Description>"LEFT"</Description>
+    <StartTime>2020-11-18 14:09:15</StartTime>
+    <Result>Done</Result>
+    <Extension>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\Logout.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[Oracle Retail Xenvironment]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[ConfirmationMessageDialog]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaButton</Type>
+            <Name><![CDATA[Y]]></Name>
+          </Object>
+        </Path>
+        <Operation>Click</Operation>
+        <OperationData><![CDATA["LEFT"]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[toolkit class]]></Name>
+            <Value><![CDATA[oracle.retail.xenvironment.ui.menu.EnvImageButton]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaButton]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[label]]></Name>
+            <Value><![CDATA[]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[attached text]]></Name>
+            <Value><![CDATA[Y]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>654cfcf7ccbe4edfb1dd9c209c4da425</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<ReportNode type="Step">
+<Data>
+    <Name>User name:.Set</Name>
+    <Description>""</Description>
+    <StartTime>2020-11-18 14:09:17</StartTime>
+    <Result>Done</Result>
+    <Extension>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\Logout.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[Oracle Retail Xenvironment]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[ConfirmationMessageDialog]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaEdit</Type>
+            <Name><![CDATA[User name:]]></Name>
+          </Object>
+        </Path>
+        <Operation>Set</Operation>
+        <OperationData><![CDATA[""]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaEdit]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[attached text]]></Name>
+            <Value><![CDATA[User name:]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>ebdf9eafe6eb4e68aa9cd18e4d6190ce</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<ReportNode type="Step">
+<Data>
+    <Name>Password:.SetSecure</Name>
+    <Description>""</Description>
+    <StartTime>2020-11-18 14:09:19</StartTime>
+    <Result>Done</Result>
+    <Extension>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\Logout.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[Oracle Retail Xenvironment]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[ConfirmationMessageDialog]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaEdit</Type>
+            <Name><![CDATA[Password:]]></Name>
+          </Object>
+        </Path>
+        <Operation>SetSecure</Operation>
+        <OperationData><![CDATA[""]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaEdit]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[attached text]]></Name>
+            <Value><![CDATA[Password:]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>ebdf9eafe6eb4e68aa9cd18e4d6190ce</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<ReportNode type="Step">
+<Data>
+    <Name>Enter.Click</Name>
+    <Description>"LEFT"</Description>
+    <StartTime>2020-11-18 14:09:22</StartTime>
+    <Result>Done</Result>
+    <Extension>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\Logout.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[Oracle Retail Xenvironment]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[ConfirmationMessageDialog]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaButton</Type>
+            <Name><![CDATA[Enter]]></Name>
+          </Object>
+        </Path>
+        <Operation>Click</Operation>
+        <OperationData><![CDATA["LEFT"]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[toolkit class]]></Name>
+            <Value><![CDATA[oracle.retail.xenvironment.ui.menu.EnvImageButton]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaButton]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[label]]></Name>
+            <Value><![CDATA[]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[attached text]]></Name>
+            <Value><![CDATA[Enter]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>654cfcf7ccbe4edfb1dd9c209c4da425</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<Data>
+    <Name>ConfirmationMessageDialog</Name>
+    <Description>JavaDialog</Description>
+    <StartTime>2020-11-18 14:09:15</StartTime>
+    <Duration>29</Duration>
+    <Result>Done</Result>
+    <Extension>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\Logout.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[Oracle Retail Xenvironment]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[ConfirmationMessageDialog]]></Name>
+          </Object>
+        </Path>
+        <OperationData><![CDATA[JavaDialog]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaDialog]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[title]]></Name>
+            <Value><![CDATA[]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>5e65f5f0a1974795981d7f9529ae9273</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<Data>
+    <Name>Oracle Retail Xenvironment</Name>
+    <Description>JavaDialog</Description>
+    <StartTime>2020-11-18 14:09:11</StartTime>
+    <Duration>33</Duration>
+    <Result>Done</Result>
+    <Extension>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\Logout.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[Oracle Retail Xenvironment]]></Name>
+          </Object>
+        </Path>
+        <OperationData><![CDATA[JavaDialog]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaDialog]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[title]]></Name>
+            <Value><![CDATA[Oracle Retail Xenvironment]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>5e65f5f0a1974795981d7f9529ae9273</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<ReportNode type="Context">
+<ReportNode type="Step">
+<Data>
+    <Name>F8.Click</Name>
+    <ErrorText>Object is disabled</ErrorText>
+    <Description>Object&amp;nbsp;is&amp;nbsp;disabled&lt;br/&gt;&lt;br/&gt;Object's physical description:&lt;br&gt;Toolkit Class = oracle.retail.xenvironment.ui.menu.EnvImageButton&lt;br&gt;to_class = JavaButton&lt;br&gt;Label = &lt;br&gt;Attached Text = F8&lt;br&gt;</Description>
+    <StartTime>2020-11-18 14:09:44</StartTime>
+    <Result>Failed</Result>
+    <Extension>
+      <StackTrace>
+        <StackFrame>
+          <ModuleName><![CDATA[FuncLibExecutableUnitName]]></ModuleName>
+          <FileName><![CDATA[C:\UserAccess\Automation\Function Library\Common Functions.qfl]]></FileName>
+          <Language><![CDATA[VBScript - script block]]></Language>
+          <FunctionName><![CDATA[Logout]]></FunctionName>
+          <Scripts><![CDATA[JavaDialog("Oracle Retail Xenvironment").JavaButton("F8").Click]]></Scripts>
+          <LineNo><![CDATA[83]]></LineNo>
+        </StackFrame>
+        <StackFrame>
+          <ModuleName><![CDATA[Action1]]></ModuleName>
+          <FileName><![CDATA[Action1]]></FileName>
+          <Language><![CDATA[VBScript - script block]]></Language>
+          <FunctionName><![CDATA[VBScript global code]]></FunctionName>
+          <Scripts><![CDATA[Logout]]></Scripts>
+          <LineNo><![CDATA[57]]></LineNo>
+        </StackFrame>
+      </StackTrace>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\Logout.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[Oracle Retail Xenvironment]]></Name>
+          </Object>
+          <Object>
+            <Type>JavaButton</Type>
+            <Name><![CDATA[F8]]></Name>
+          </Object>
+        </Path>
+        <Operation>Click</Operation>
+        <OperationData><![CDATA["LEFT"]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[toolkit class]]></Name>
+            <Value><![CDATA[oracle.retail.xenvironment.ui.menu.EnvImageButton]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaButton]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[label]]></Name>
+            <Value><![CDATA[]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[attached text]]></Name>
+            <Value><![CDATA[F8]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>654cfcf7ccbe4edfb1dd9c209c4da425</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+    <Snapshot reference="Resources\Snapshots\9e4d337d-0b9e-4ea3-bc12-2053a72e2ed5.jpeg" highlight="0,0,1024,768" />
+  </Data>
+</ReportNode>
+<ReportNode type="Step">
+<Data>
+    <Name>Stop Run</Name>
+    <Description>Run stopped by user.</Description>
+    <StartTime>2020-11-18 14:09:50</StartTime>
+    <Result>Information</Result>
+    <Extension>
+      <IconKey>2a72dd8781884ee58853732a2cd23bee</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<Data>
+    <Name>Oracle Retail Xenvironment</Name>
+    <Description>JavaDialog</Description>
+    <StartTime>2020-11-18 14:09:44</StartTime>
+    <Duration>7</Duration>
+    <Result>Failed</Result>
+    <Extension>
+      <TestObject>
+        <Repository>C:\UserAccess\Automation\Object Repository\Logout.tsr</Repository>
+        <Path>
+          <Object>
+            <Type>JavaDialog</Type>
+            <Name><![CDATA[Oracle Retail Xenvironment]]></Name>
+          </Object>
+        </Path>
+        <OperationData><![CDATA[JavaDialog]]></OperationData>
+        <Properties>
+          <Property>
+            <Name><![CDATA[to_class]]></Name>
+            <Value><![CDATA[JavaDialog]]></Value>
+          </Property>
+          <Property>
+            <Name><![CDATA[title]]></Name>
+            <Value><![CDATA[Oracle Retail Xenvironment]]></Value>
+          </Property>
+        </Properties>
+      </TestObject>
+      <IconKey>5e65f5f0a1974795981d7f9529ae9273</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<Data>
+    <Name>Action1</Name>
+    <Description />
+    <StartTime>2020-11-18 14:09:01</StartTime>
+    <Duration>50</Duration>
+    <Result>Failed</Result>
+    <InputParameters />
+    <Extension>
+      <IconKey>6796f326ba084889a07bebfe77b43ec8</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+  </Data>
+</ReportNode>
+<Data>
+    <Name>Action0</Name>
+    <Description />
+    <StartTime>2020-11-18 14:09:01</StartTime>
+    <Duration>50</Duration>
+    <Result>Failed</Result>
+    <Extension>
+      <IconKey>0505eea129324ef0921d65e0ffb879f8</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+    <Index>1</Index>
+    <TestedApplications />
+  </Data>
+</ReportNode>
+<Data>
+    <Name>TC001_UserAccess_Sample</Name>
+    <ToolName>Micro Focus Unified Functional Testing</ToolName>
+    <ToolVersion>0</ToolVersion>
+    <ToolVersionStringLiteral>15.0.1</ToolVersionStringLiteral>
+    <Description />
+    <StartTime>2020-11-18 14:08:59</StartTime>
+    <Duration>52</Duration>
+    <Result>Failed</Result>
+    <InputParameters />
+    <Extension>
+      <IconKey>4f4cc68eb0d34e8eb0f0398396dae72c</IconKey>
+      <IsPlainTextNodeName>True</IsPlainTextNodeName>
+    </Extension>
+    <Environment>
+      <Timezone>00:00:00</Timezone>
+      <Locale>English (United States)</Locale>
+      <User>Administrator</User>
+      <CpuInfo>Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz</CpuInfo>
+      <NumberOfCores>4</NumberOfCores>
+      <TotalMemory>16384</TotalMemory>
+      <HostName>AO2SIT919R2</HostName>
+      <OSInfo>Windows Server 2016</OSInfo>
+    </Environment>
+    <TestedApplications />
+    <Links>
+      <Link type="DataTable" reference="Default.xlsx" displayname="Default Data Table" />
+    </Links>
+  </Data>
+</ReportNode>
+<GeneralInfo>
+    <ResultName>Res3</ResultName>
+    <RunStartTime>2020-11-18 14:08:59</RunStartTime>
+    <Timezone>00:00:00</Timezone>
+    <OrchestrationToolName>Micro Focus Unified Functional Testing</OrchestrationToolName>
+    <OrchestrationToolVersion>0</OrchestrationToolVersion>
+    <OrchestrationToolVersionStringLiteral>15.0.1</OrchestrationToolVersionStringLiteral>
+  </GeneralInfo>
+</Results>

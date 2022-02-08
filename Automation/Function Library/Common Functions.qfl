@@ -1,0 +1,426 @@
+﻿'###################################################################################################################
+'Function Name: Login
+'Function Description: Login into Xstore Application
+'Designed By Date: RAMESH
+'Designed Date(MM/DD/YY): 11/11/2020
+'###################################################################################################################
+
+Function Login(strUsername, strPassword)
+
+	If JavaWindow("Oracle Retail Xstore Point").JavaButton("Online").Exist(2) Then
+	
+		Set objkeys = createobject("Wscript.Shell")
+		Set objkey1= createobject("Wscript.Shell")
+		If JavaWindow("Oracle Retail Xstore Point").JavaButton("Back Office").Exist(2) Then
+		JavaWindow("Oracle Retail Xstore Point").JavaButton("Back Office").Click
+		End If
+		JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Set strUsername
+		objkeys.SendKeys "{ENTER}"
+		Wait 4
+		JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").SetSecure strPassword
+		objkeys.SendKeys "{ENTER}"
+		Wait 4
+		If JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").exist(2) Then   
+		    JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Click
+		 Wait 4
+		    
+		    If JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").exist(2) Then
+		    	JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+		    End If
+		  Wait 4
+		    If JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Exist(2) Then
+				IfJavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+			Else 
+			objkey1.SendKeys "{F2}"
+		    End If
+
+			Wait 4
+		Else
+		    If JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").exist(2) Then
+		    	JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+		    End If
+		    
+		    If JavaWindow("Oracle Retail Xstore Point").JavaButton("text:=Confirm").Exist(2) Then
+		    	JavaWindow("Oracle Retail Xstore Point").JavaButton("text:=Confirm").Click
+		    End If
+		    
+		End If
+	
+	Else
+		Reporter.ReportEvent micFail, "Xstore Application should be online","Xstore Application is offline"
+	End If
+
+	set objkeys = Nothing
+	
+End Function
+
+
+Function LoginXstore(LoginType,strUsername,strPassword)
+	If (LoginType="Backoffice") Then
+		If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Back Office").Exist(2)) Then
+			JavaWindow("Oracle Retail Xstore Point").JavaButton("Back Office").Click
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Set strUsername
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Activate
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Set strPassword
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Activate
+
+			If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Exist(2)) Then
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Click
+				Wait 2
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+				Wait 2
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+				Else 
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+				Wait 2
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+			End If
+
+			Else
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Set strUsername
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Activate
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Set strPassword
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Activate
+			If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Exist(2)) Then
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Click
+				Wait 2
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+				Wait 2
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+				Else
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+				Wait 2
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+			End If
+			
+		End If
+	ElseIf (LoginType="Till") Then
+		If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Till").Exist(2)) Then
+			JavaWindow("Oracle Retail Xstore Point").JavaButton("Till").Click
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Set strUsername
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Activate
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Set strPassword
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Activate
+			If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Exist(2)) Then
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Click
+				Wait 2
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+				Wait 2
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+				Else 
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+				Wait 2
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+			End If
+			Else
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Set strUsername
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Activate
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Set strPassword
+			JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Activate
+			If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Exist(2)) Then
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Click
+				Wait 2
+'				JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+'				ssWait 2
+'				JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+		   ElseIf (JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Exist(2)) Then
+		   		JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+				Wait 2
+				JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+			Else
+				Reporter.ReportEvent micPass, "Unable to login","Step failed"
+			End If
+		End If	
+	Else
+		Reporter.ReportEvent micFail, "Unable to login", "Test step Failed"
+	
+	
+	End If
+	
+End Function
+
+'###################################################################################################################
+'Function Name: Stock Adjustment
+'Function Description: Stock Adjustment
+'Designed By Date: YOGESH
+'Designed Date(MM/DD/YY): 20/11/2020
+'###################################################################################################################
+
+Function StockAdj(intPLU,intIMEI1,intIMEI2)
+	
+Dim IMEIcount, IMEI1, IMEI2, PLUnumber
+
+IMEIcount = 2
+
+'Stock Adjustment
+
+Set objkeys = createobject("Wscript.Shell")
+
+JavaWindow("Oracle Retail Xstore Point").Restore
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Back Office").Click
+JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Set "100"
+objkeys.SendKeys "{ENTER}"
+JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Set "1234"
+objkeys.SendKeys "{ENTER}"
+
+wait 2
+
+If JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").exist(2) Then
+	
+	JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Click
+	wait 1
+	JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+	wait 1
+	JavaWindow("Oracle Retail Xstore Point").JavaButton("Continue").Click
+	
+	Else 
+	JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+	wait 1
+	JavaWindow("Oracle Retail Xstore Point").JavaButton("Continue").Click
+	
+End If
+
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList_2").Select "#2"
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaList("DtvList_2").Select "#6"
+
+wait 1
+JavaWindow("Oracle Retail Xstore Point").JavaList("Adjustment Type").Select "Sellable"
+JavaWindow("Oracle Retail Xstore Point").JavaList("Reason").Select "BUNDLE CREATE"
+JavaWindow("Oracle Retail Xstore Point").JavaEdit("Justification").Set "Test Automation"
+wait 1
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+
+wait 1
+
+JavaWindow("Oracle Retail Xstore Point").JavaEdit("Enter PLU").Set intPLU
+
+objkeys.SendKeys "{ENTER}"
+JavaWindow("Oracle Retail Xstore Point").JavaEdit("Enter Quantity").set "2"
+
+wait 2
+
+objkeys.SendKeys "{ENTER}"
+
+wait 3
+
+For i = 1 To IMEIcount
+	
+	JavaWindow("Oracle Retail Xstore Point").JavaEdit("IMEI/Serial Number").Set eval("IMEI"&i)
+	wait 2
+	
+	JavaWindow("Oracle Retail Xstore Point").JavaButton("Add").Click
+	
+	If IMEIcount = i Then
+		
+		Exit for
+		
+	End If	
+	
+Next
+
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm_2").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm_2").Click
+wait 2
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").Click
+
+wait 7
+
+JavaWindow("Oracle Retail Xstore Point").JavaButton("Till_2").Click
+
+Set objkeys = nothing
+	
+End Function
+
+
+'###################################################################################################################
+'Function Name: Logout
+'Function Description: Logout into Xstore Application
+'Designed By Date: STEFFY
+'Designed Date(MM/DD/YY): 11/11/2020
+'###################################################################################################################
+
+
+Function Logout(LoginType)
+   
+ 
+    If (LoginType="Till") Then
+    For i = 1 To 10
+        Wait 2
+        If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Back_2").Exist(1)) Then
+            If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Back_2").GetROProperty("enabled")="1") Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Back_2").Click
+                Else
+                Reporter.ReportEvent micPass, "Back_2 button not displayed","Button not displayed"
+            End If            
+        ElseIf (JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").Exist) Then
+            If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").GetROProperty("enabled")="1") Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").Click
+                Else
+                Reporter.ReportEvent micPass, "Back button is not displayed","Button not displayed"
+            End If
+           
+        ElseIf(JavaWindow("Oracle Retail Xstore Point").JavaButton("Log Off").Exist(2)) Then
+            JavaWindow("Oracle Retail Xstore Point").JavaButton("Log Off").Click
+            Exit for
+        Else
+            Print "Logout"
+'            Call Logout(strUsername,strPassword)
+        End If
+    Next
+    ElseIf (LoginType="Backoffice") Then
+            For i = 1 To 10
+            Wait 2
+        If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Back_2").Exist(1)) Then
+            If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Back_2").GetROProperty("enabled")="1") Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Back_2").Click
+                Else
+                Reporter.ReportEvent micPass, "Back_2 button not displayed","Button not displayed"
+            End If            
+        ElseIf (JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").Exist) Then
+            If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").GetROProperty("enabled")="1") Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Back").Click
+                Else
+                Reporter.ReportEvent micPass, "Back button is not displayed","Button not displayed"
+            End If
+'        ElseIf (JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Exist(2)) Then
+'            JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+            Wait 2
+        ElseIf (JavaWindow("Oracle Retail Xstore Point").JavaButton("Cancel").Exist(2)) Then
+            If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Cancel").GetROProperty("enabled")="1") Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Cancel").Click
+                Else
+                Reporter.ReportEvent micPass, "Back_2 button not displayed","Button not displayed"
+            End If            
+        ElseIf (JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Exist) Then
+            If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").GetROProperty("enabled")="1") Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+                Else
+                Reporter.ReportEvent micPass, "Back button is not displayed","Button not displayed"
+            End If
+        ElseIf (JavaWindow("Oracle Retail Xstore Point").JavaButton("OK").Exist) Then
+            If (JavaWindow("Oracle Retail Xstore Point").JavaButton("OK").GetROProperty("enabled")="1") Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("OK").Click
+                Else
+                Reporter.ReportEvent micPass, "Back button is not displayed","Button not displayed"
+            End If           
+        ElseIf(JavaWindow("Oracle Retail Xstore Point").JavaStaticText("Back Office Login(st)").Exist(2)) Then
+            Reporter.ReportEvent micPass, "Successfully logged out","Logged out successfully"
+            Exit for
+        Else
+        Print "Logout"
+       
+'    Call Logout(strUsername,strPassword)
+        End If
+    Next
+
+
+       
+    End If
+   
+   
+   
+End Function
+
+
+
+'###################################################################################################################
+'Function Name: Login
+'Function Description: Login into Xstore Application
+'Designed By Date: STEFFY
+'Designed Date(MM/DD/YY): 11/11/2020
+'###################################################################################################################
+
+
+Function LoginXstore(LoginType,strUsername,strPassword)
+
+    If(JavaWindow("Oracle Retail Xstore Point").JavaButton("Log Off").Exist(2)) Then
+        JavaWindow("Oracle Retail Xstore Point").JavaButton("Log Off").Click
+    End If
+    If (LoginType="Backoffice") Then
+        If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Back Office").Exist(2)) Then
+            JavaWindow("Oracle Retail Xstore Point").JavaButton("Back Office").Click
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Set strUsername
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Activate
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").SetSecure strPassword
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Activate
+
+            If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Exist(5)) Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Click
+            End If
+            Wait 2
+            If JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Exist(2) Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+            End If
+            Wait 2
+            If JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Exist(2) Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+            End If
+
+        Else
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Set strUsername
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Activate
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").SetSecure strPassword
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Back Office Login").Activate
+            If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Exist(5)) Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Click
+            End If
+            Wait 2
+            If JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Exist(2) Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+            End If
+            Wait 2
+            If JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Exist(2) Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+            End If
+            
+        End If
+    ElseIf (LoginType="Till") Then
+        If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Till").Exist(2)) Then
+            JavaWindow("Oracle Retail Xstore Point").JavaButton("Till").Click
+            wait 2
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Set strUsername
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Activate
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").SetSecure strPassword
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Activate
+            If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Exist(5)) Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Click
+            End If
+            Wait 2
+            If JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Exist(2) Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+            End If
+            Wait 2
+            If JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Exist(2) Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+            End If
+        Else
+            wait 2
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Highlight
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Set strUsername
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Activate
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Highlight
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").SetSecure strPassword
+            JavaWindow("Oracle Retail Xstore Point").JavaEdit("Login").Activate
+            wait 2
+            If (JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Exist(5)) Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Override").Click
+            End If
+            Wait 2
+            If JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Exist(2) Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Yes").Click
+            End If
+            Wait 2
+            If JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Exist(2) Then
+                JavaWindow("Oracle Retail Xstore Point").JavaButton("Confirm").Click
+            End If
+        End If    
+    Else
+        Reporter.ReportEvent micFail, "Unable to login", "Test step Failed"
+    End If
+End Function
+
+
